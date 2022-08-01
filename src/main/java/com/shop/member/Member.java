@@ -1,10 +1,13 @@
 package com.shop.member;
 
+import com.shop.order.Order;
 import com.shop.team.Team;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -28,5 +31,11 @@ public class Member {
     private String street;
 
     private String zipcode;
+    public void changeTeam(Team team) { //<<= 연관관계 편의 메소드..!
+        this.team = team;
+        team.getMembers().add(this);
+    }
 
+    @OneToMany(mappedBy = "member")
+    List<Order> orders = new ArrayList<>();
 }

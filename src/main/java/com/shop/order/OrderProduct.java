@@ -1,5 +1,6 @@
 package com.shop.order;
 
+import com.shop.product.Product;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,11 +14,13 @@ public class OrderProduct {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "ORDER_ID")
-    private Long orderId;
+    @ManyToOne
+    @JoinColumn(name = "ORDER_ID")
+    private Order order;
 
-    @Column(name="PRODUCT_ID")
-    private Long productId;
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
+    private Product product;
 
     private Integer orderPrice;
 

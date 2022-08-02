@@ -1,5 +1,7 @@
 package com.shop;
 
+import com.shop.item.Book;
+import com.shop.item.Movie;
 import com.shop.member.Member;
 import com.shop.team.Team;
 
@@ -15,8 +17,21 @@ public class JPAMain {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction tx = entityManager.getTransaction();
         try{
+            tx.begin();
+            Movie movie = new Movie();
+            movie.setActor("FFFF");
+            movie.setDirector("FASDFADF");
+            movie.setName("FASFsa");
+            movie.setPrice(412431234L);
+            entityManager.persist(movie);
+
+            entityManager.flush();
+            entityManager.clear();
+
+            Movie findMovie = entityManager.find(Movie.class,movie.getId());
 
 
+            tx.commit();
         }
         catch (Exception e){
             System.out.println(e);

@@ -1,5 +1,6 @@
 package com.shop.delivery;
 
+import com.shop.common.BaseEntity;
 import com.shop.order.Order;
 import lombok.Getter;
 
@@ -7,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter
-public class Delivery {
+public class Delivery extends BaseEntity {
 
     @Id
     @GeneratedValue
@@ -18,7 +19,7 @@ public class Delivery {
     private String zipCode;
     private String street;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Order order;
 
     @Enumerated(EnumType.STRING)

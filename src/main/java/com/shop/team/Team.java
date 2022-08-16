@@ -1,5 +1,6 @@
 package com.shop.team;
 
+import com.shop.common.BaseEntity;
 import com.shop.member.Member;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-public class Team {
+public class Team extends BaseEntity {
 
     @Id
     @Column(name="TEAM_ID")

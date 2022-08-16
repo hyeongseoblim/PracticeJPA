@@ -1,12 +1,15 @@
 package com.shop.item;
 
+import com.shop.common.BaseEntity;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 
-@Entity @Getter
+@Entity @Getter @Setter
 public class Album extends Item {
 
-    private String singer;
+    private String artist;
+    private String etc;
 
 }

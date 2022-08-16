@@ -1,5 +1,6 @@
 package com.shop.item;
 
+import com.shop.common.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,9 +8,8 @@ import javax.persistence.*;
 
 @Entity
 @Getter @Setter
-//@Inheritance(strategy = I)
 @DiscriminatorColumn
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 /*
 * Inheritance
 *   JOINED - 조인 전략
@@ -20,7 +20,7 @@ import javax.persistence.*;
 *   Column - 자식의 타입이 명시되는 컬럼 (DTYPE) 엔티티 명이 들어간다.
 *   Value - 자식 클래스에서 특정 값을 명시하면 DTYPE 값에 명시한 값이 들어간다
 * */
-public class Item {
+public class Item extends BaseEntity {
 
     @Id
     @GeneratedValue

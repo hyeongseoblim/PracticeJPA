@@ -1,5 +1,6 @@
 package com.shop.product;
 
+import com.shop.common.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "PRODUCTS")
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
-public class Product {
+public class Product extends BaseEntity {
 
     @Id
     @Column(name = "PRODUCT_ID")

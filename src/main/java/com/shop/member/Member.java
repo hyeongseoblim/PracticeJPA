@@ -20,7 +20,7 @@ public class Member {
     private Long id;
 
     //여러 멤버가 하나의 팀에 속할 수 있음.
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="TEAM_ID")
     private Team team;
 
